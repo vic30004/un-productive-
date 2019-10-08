@@ -1,13 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 const app = express()
-
+const Rawger = require('rawger');
 const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-
+app.get('/games', async function (req, res) {
+    const rawger = await Rawger();
+    const { games } = rawger;
+    
+    const results = (await games.search(req.query.q));
+    res.json(results.get());
+    
+})
 
 
 app.listen(PORT, () => {

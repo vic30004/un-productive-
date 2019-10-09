@@ -8,9 +8,11 @@
 
 :root{
   --logo-font: 'Turret Road', cursive;
-  --main-color: #88AAFF;
-  --second-color: #5988FF;
+  --main-color: #bc2b45;
+  --second-color: #A16F9D;
   --third-color:#2D4480;
+  --yellow-color:#E3D984;
+  --green-color:#7ca981;
   --dark-color: #111;
   --light-color: ivory;
   --max-width: 1100px;
@@ -26,6 +28,9 @@ a{
   color:var(--light-color);
 }
 
+img{
+  width: 100%;
+}
 
 /* Utility */
 
@@ -38,28 +43,85 @@ a{
 }
 
 .btn-book{
-  background:#CD8A23;
-  box-shadow: 0 3px 10px #FFAB29;
+  background:var(--main-color);
+  box-shadow: 0 3px 16px var(--main-color);
 }
 
 .btn-game{
-  background: #E49926;
-  box-shadow: 0 3px 10px #EA9B21;
+  background: #A880C0;
+  box-shadow: 0 3px 10px rgb(94, 34, 129);
   
 }
 .btn-random{
-  background: #FFAC2C;
-  box-shadow: 0 3px 10px #D9901E;
+  background: rgb(66, 79, 155);
+  box-shadow: 0 3px 10px rgb(23, 52, 95);
 }
 
 .btn:hover {
-  box-shadow: 0 2px 5px #FFAB29;
+  box-shadow: 0 2px 5px rgb(79, 82, 90);
   transform: translateY(3%);
 }
 
 .btn:active{
   box-shadow: none;
   transform: translateY(4%);
+}
+
+.container{
+  display: grid;
+  width: var(--max-width);
+  margin: 2rem auto;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 2rem;
+  
+}
+
+.card{
+  width: 300px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 4px 10px var(--dark-color);
+  background: var(--dark-color);
+  color: var(--light-color);
+  transition: all 1s ease;
+  z-index: -1;
+}
+
+.card:nth-child(even){
+  animation: even .5s ease 1;
+}
+
+.card:nth-child(odd){
+  animation: odd .5s ease 1;
+}
+
+@keyframes even{
+  0%{
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  80%{
+    transform:translateY(20%);
+    opacity:.8;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes odd{
+  0%{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  80%{
+    transform:translateY(-20%);
+    opacity:.8;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Header */
@@ -69,6 +131,7 @@ a{
   height:50vh;
   background: linear-gradient(to right, var(--main-color), var(--second-color),var(--third-color));
   border-radius: 20px;
+  z-index: 1;
 }
 
 
@@ -104,5 +167,19 @@ a{
   
 }
 
+/* Books */
+
+#books{
+  width: 100%;
+  height: 100%;
+}
+
+#books .container .card .title{
+  font-size: 1rem;
+}
+
+#books .container .card img{
+  margin: .5rem 0;
+}
 
 

@@ -15,23 +15,7 @@ class Body extends Component {
   render() {
     return (
     <section id="books">
-        <h1>Bestsellers</h1> <span><a href="#" className="btn btn-books">More books</a></span>
-        <div className="container">
-    {this.state.books.map(data =>{
-        return (
-            <div className="card" key={data.title}>
-                <h2 className="title">{data.title}</h2>
-                <img src={data["book_image"]} alt=""/>
-                <a href="#" className="btn btn-book">Learn More</a>
-            </div>
-        )
-    })}
-        </div>
-        <section>
-        <h1>Games</h1>
-            <Games/>
-        
-        </section>
+  <h1>Games</h1>
     </section>
 
     )

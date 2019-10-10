@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment,Component } from 'react';
 import GamesItem from './GamesItem';
 import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types'
@@ -9,16 +9,14 @@ const Games = ({ games, loading }) => {
     return <Spinner/>
   } else {
     return (
-      <div>
+      <Fragment>
         <h1>Games</h1>
-        <section className='container'>
-          <div className='container'>
+    
             {games.map(data => (
               <GamesItem key={data.name} games={data} />
             ))}
-          </div>
-        </section>
-      </div>
+
+      </Fragment>
     );
   }
 };

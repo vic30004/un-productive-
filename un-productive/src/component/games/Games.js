@@ -1,45 +1,29 @@
-import React, { Component } from 'react';
+import React, { Fragment,Component } from 'react';
+import GamesItem from './GamesItem';
+import Spinner from '../layout/Spinner';
+import PropTypes from 'prop-types'
 
 
-
-class Games extends Component {
-    
-state= {
-    games:[],
-}
-
-componentWillMount(){
-    this.setState({loading:true})
-      let queryUrl =
-      `https://api.rawg.io/api/games?page_size=15`;
-    fetch(queryUrl)
-      .then(res => res.json())
-      .then(data => {console.log(data.results)
-      this.setState({games:data.results, loading:false})
-      })
-      console.log(this.state.games)
-  }
-
-
-  render() {
-    const {games} = this.state;  
+const Games = ({ games, loading }) => {
+  if (loading) {
+    return <Spinner/>
+  } else {
     return (
-      <div>
-      <section className="container">
-        {games.map(data => (
-            
-            <div className="card">
-            <h1>{data.name}</h1>
-            <img src={data.background_image} alt=""/>
-            </div>
-            
-        ))}
-        </section>
-       </div>     
-    )
-}
-      
+      <Fragment>
+        <h1>Games</h1>
+    
+            {games.map(data => (
+              <GamesItem key={data.name} games={data} />
+            ))}
+
+      </Fragment>
+    );
   }
+};
 
+Games.prototype={
+  games: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+}
 
-export default Games
+export default Games;

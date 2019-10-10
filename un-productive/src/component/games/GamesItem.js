@@ -6,7 +6,7 @@ const GamesItem = ({games: {name, background_image}}) => {
   return (
     <div className='card'>
       <h1>{name}</h1>
-      <img src={background_image} alt='' />
+      {background_image && (<img src={background_image} alt='' />)}
     </div>
   );
 };
@@ -16,3 +16,4 @@ GamesItem.propTypes = {
 }
 
 export default GamesItem;
+

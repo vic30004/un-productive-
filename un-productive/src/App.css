@@ -20,6 +20,7 @@
 
 body{
   padding: 1.3rem;
+  background: var(--dark-color);
 
 }
 

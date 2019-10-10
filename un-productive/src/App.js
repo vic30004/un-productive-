@@ -1,30 +1,80 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Header from './component/layout/Header';
+import Body from './component/layout/Body';
+import Games from './component/games/Games';
+import Books from './component/books/pages/Books'
+import SearchGame from './component/games/pages/SearchGame';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      books: [],
+      games:[],
+      loading: false,
     };
   }
-
-  componentDidMount() {
-    let queryUrl =
-      'https://gist.githubusercontent.com/vic30004/59d9abf8c119578210f486c53d953205/raw/c3670f660da5d9554ce4c5aae37e3144a701dd3d/cupcake.json';
+  
+  componentWillMount(){
+    this.setState({loading:true})
+      let queryUrl =
+      `https://api.rawg.io/api/games?page_size=15`;
     fetch(queryUrl)
       .then(res => res.json())
-      .then(data => {console.log(data);
-      this.setState({data:data})
-      });
+      .then(data => {console.log(data.results)
+      this.setState({games:data.results, loading:false})
+      console.log(this.state.games)
+      })
+      console.log(this.state.games)
   }
 
+//search games
+searchGames = (text) =>{
+  console.log(text)
+  let queryUrl =
+  `https://api.rawg.io/api/games?page_size=9&search=${text}`;
+fetch(queryUrl)
+  .then(res => res.json())
+  .then(data => {console.log(data.results)
+  this.setState({games:data.results})
+  })
+}
+//search books
+searchBooks = (text) =>{
+  let queryUrl =
+  `https://www.googleapis.com/books/v1/volumes?q=${text}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+fetch(queryUrl)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data.items)
+  this.setState({books:data.items})
+  })
+}
+
+
+
+  
+
   render() {
+    const {loading,games,books}=this.state
     return (
+      <Router>
       <div>
-        <Header />
+      <Switch>
+      <Route exact path='/' render={props=>(
+        <Fragment>
+        <Header searchGames={this.searchGames} searchBooks={this.searchBooks}/>
+        <Games loading={loading} games={games} />
+        <Books loading={loading} books={books}/>
+      </Fragment>
+      )
+      }/>
+      </Switch>
+        <Route exact path="/game/:name" Component={SearchGame}/>
       </div>
+      </Router>
     );
   }
 }

@@ -10,17 +10,7 @@ class Body extends Component {
   };  
     }
   
-  componentDidMount() {
-    let queryUrl =
-      'https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=al4ODs5BxXbM3ab3RBGmIsl5c5ArdKT2';
-    fetch(queryUrl)
-      .then(res => res.json())
-      .then(data => {
-      this.setState({books:data.results.books})
-      })
-  }
 
- 
 
   render() {
     return (

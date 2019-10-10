@@ -2,12 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express()
 const Rawger = require('rawger');
+const routes = require("./controllers/games-controler.js")
 const PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(routes)
 
-app.get('/games', async function (req, res) {
+
+
+app.get('/games/:title', async function (req, res) {
     const rawger = await Rawger();
     const { games } = rawger;
     

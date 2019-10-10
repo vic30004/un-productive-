@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export class Header extends Component {
   state = {
     text: '',
   };
 
-//   onSubmit = e => {
-//     e.preventDefault();
-//     this.props.searchGames(this.state.text);
-  
-//       this.setState({text:''})
-//   };
 
-onSubmit = () =>{
-//     let queryUrl =
-//     `https://api.rawg.io/api/games?page_size=5&search=${this.state.text}`;
-//   fetch(queryUrl)
-//     .then(res => res.json())
-//     .then(data => {console.log(data.results)
-//     this.setState({games:data})
-//     })
+
+onSubmitGame = (e) =>{
+  e.preventDefault();
+  console.log(this.state.text)
+  this.props.searchGames(this.state.text);
+  this.setState({text:''});
+}
+onSubmitBook = (e) =>{
+  e.preventDefault();
+  console.log(this.state.text)
+  this.props.searchBooks(this.state.text);
+  this.setState({text:''});
 }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -40,12 +39,12 @@ onSubmit = () =>{
           />
 
           <div className='submit'>
-            <a href='#' className='btn btn-book'>
+            <Link onClick={this.onSubmitBook} to='/books' className='btn btn-book'>
               Search Book
-            </a>
-            <a onClick={this.onSubmit} href='#' className='btn btn-game'>
-              Search Game
-            </a>
+            </Link>
+            <Link onClick={this.onSubmitGame} to="/games" className='btn btn-game'> Search Game</Link>
+              
+          
             <a href='#' className='btn btn-random'>
               Random
             </a>

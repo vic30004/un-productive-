@@ -28,6 +28,7 @@ class Body extends Component {
     })}
         </div>
         <section>
+        <h1>Games</h1>
             <Games/>
         
         </section>

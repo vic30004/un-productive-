@@ -46,13 +46,13 @@ export class Header extends Component {
         <nav className='nav-bar'>
           <ul>
             <li>
-              <a href=''>Home</a>{' '}
+              <Link to="/" >Home</Link>{' '}
             </li>
             <li>
-              <a href=''>Productive</a>{' '}
+              <Link to="/productive">Productive</Link>{' '}
             </li>
             <li>
-              <a href=''>Unproductive</a>{' '}
+              <Link to='/unproductive'>Unproductive</Link>{' '}
             </li>
           </ul>
         </nav>

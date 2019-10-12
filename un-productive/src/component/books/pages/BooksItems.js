@@ -15,7 +15,7 @@ const BooksItems = ({ books: { title, imageLinks } }) => {
   );
 };
 
-BooksItems.proptype = {
+BooksItems.propTypes = {
   books: PropTypes.object.isRequired
 };
 

@@ -204,4 +204,30 @@ li{
   margin: .5rem 0;
 }
 
+/* Productive */
 
+#productive{
+  width: 100%;
+}
+
+#productive .pContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  flex:1;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 3rem;
+  height: 100%;
+  align-items: center;
+}
+
+#productive .pContainer .bPic{
+  width: 200px;
+  margin: 0 1rem;
+}
+
+#productive .pContainer .content{
+  justify-items: center;
+  height: 100%;
+}

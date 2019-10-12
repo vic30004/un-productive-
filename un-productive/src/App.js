@@ -4,7 +4,8 @@ import Header from './component/layout/Header';
 import Games from './component/games/Games';
 import Books from './component/books/pages/Books';
 import SearchGame from './component/games/pages/SearchGame';
-import Productive from './component/pages/Productive'
+import Productive from './component/pages/productive/Productive'
+import ProductiveState from './component/context/productive/ProductiveState';
 import './App.css';
 
 class App extends Component {

@@ -1,11 +1,13 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run un-productive\""
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +21,7 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

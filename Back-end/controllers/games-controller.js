@@ -3,7 +3,7 @@ const router = express.Router();
 const Rawger = require('rawger');
 const connection = require('../config/connection')
 
-router.get('/unproductive', async function (req, res) {
+router.get('/api/unproductive', async function (req, res) {
 
     connection.query("SELECT * FROM games", function (err, results) {
         if (err) throw err;
@@ -11,7 +11,7 @@ router.get('/unproductive', async function (req, res) {
     });
 });
 
-router.post('/unproductive', async function (req, res) {
+router.post('/api/unproductive', async function (req, res) {
     console.log(req.body)
 const {game_name,picture,release_date,genre,platform,user_name}= req.body;
     connection.query(`INSERT INTO games (game_name, picture, release_date, genre, platform, user_name)

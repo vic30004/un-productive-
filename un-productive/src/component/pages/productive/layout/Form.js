@@ -16,17 +16,17 @@ const Form = () => {
   const onChange = e =>
     setPbook({ ...pBooks, [e.target.name]: [e.target.value] });
 
-    const onSubmit = e => {
-        e.preventDefault();
-        productiveContext.addNewBook(pBooks);
-        setPbook ({
-            author_name: '',
-            book_name: '',
-            picture: '',
-            date_published: '',
-            user_name: '' 
-        })
-    }
+  const onSubmit = e => {
+    e.preventDefault();
+    productiveContext.addNewBook(pBooks);
+    setPbook({
+      author_name: '',
+      book_name: '',
+      picture: '',
+      date_published: '',
+      user_name: ''
+    });
+  };
 
   return (
     <div>

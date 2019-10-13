@@ -4,8 +4,10 @@ import Header from './component/layout/Header';
 import Games from './component/games/Games';
 import Books from './component/books/pages/Books';
 import SearchGame from './component/games/pages/SearchGame';
-import Productive from './component/pages/productive/Productive'
+import Productive from './component/pages/productive/Productive';
+import Unproductive from './component/pages/unproductive/Unproductive';
 import ProductiveState from './component/context/productive/ProductiveState';
+import UnproductiveState from './component/context/unproductive/UnproductiveState';
 import './App.css';
 
 class App extends Component {
@@ -15,7 +17,7 @@ class App extends Component {
       books: [],
       games: [],
       loading: false,
-      alert:null
+      alert: null
     };
   }
 
@@ -55,18 +57,18 @@ class App extends Component {
       });
   };
 
-  // clear search 
-  clear = ()=>{
-    this.setState({books:[],loading:false,games:[]})
-  }
+  // clear search
+  clear = () => {
+    this.setState({ books: [], loading: false, games: [] });
+  };
 
-  setAlert=(msg,type)=>{
-    this.setState({alert:{msg,type}})
-    setTimeout(()=>this.setState({alert:null}),5000)
-  }
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg, type } });
+    setTimeout(() => this.setState({ alert: null }), 5000);
+  };
 
   render() {
-    const { loading, games, books,alert } = this.state;
+    const { loading, games, books, alert } = this.state;
     return (
       <Router>
         <div>
@@ -80,21 +82,21 @@ class App extends Component {
                     searchGames={this.searchGames}
                     searchBooks={this.searchBooks}
                     clear={this.clear}
-                    showClearGames= {this.state.games.length>0 ? true:false}
-                    showClearBooks= {this.state.books.length>0 ? true:false}
+                    showClearGames={this.state.games.length > 0 ? true : false}
+                    showClearBooks={this.state.books.length > 0 ? true : false}
                     setAlert={this.setAlert}
-                    alert= {alert}
+                    alert={alert}
                   />
                   <div className='container'>
-                    <Games className='card' loading={loading} games={games}/>
+                    <Games className='card' loading={loading} games={games} />
                     <Books loading={loading} books={books} />
                   </div>
                 </div>
               )}
             />
-            <Route exact path='/productive' component={Productive}/>
+            <Route exact path='/productive' component={Productive} />
+            <Route exact path='/unproductive' component={Unproductive} />
           </Switch>
-          
         </div>
       </Router>
     );

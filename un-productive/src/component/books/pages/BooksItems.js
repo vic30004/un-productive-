@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const BooksItems = ({ books: { title, imageLinks } }) => {
   return (
     <section id='books'>
-      <div className='card'>
+      <div className="card">
         <h2 className='title'>{title}</h2>
         <img src={imageLinks.thumbnail} alt='' />
         <a href='#' className='btn btn-book'>

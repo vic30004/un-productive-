@@ -14,14 +14,21 @@
     "type": "git",
     "url": "git+https://github.com/vic30004/un-productive-.git"
   },
+<<<<<<< HEAD
+=======
   "keywords": [],
+>>>>>>> 78f0d3ce239ce0485bc77cdecf870a5ae90d5ee3
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vic30004/un-productive-/issues"
   },
+<<<<<<< HEAD
+  "homepage": "https://github.com/vic30004/un-productive-#readme"
+=======
   "homepage": "https://github.com/vic30004/un-productive-#readme",
   "dependencies": {
     "concurrently": "^5.0.0"
   }
+>>>>>>> 78f0d3ce239ce0485bc77cdecf870a5ae90d5ee3
 }

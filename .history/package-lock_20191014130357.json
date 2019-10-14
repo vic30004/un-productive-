@@ -1,6 +1,9 @@
 {
   "name": "un-productive-",
   "version": "1.0.0",
+<<<<<<< HEAD
+  "lockfileVersion": 1
+=======
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
@@ -617,4 +620,5 @@
       }
     }
   }
+>>>>>>> 78f0d3ce239ce0485bc77cdecf870a5ae90d5ee3
 }

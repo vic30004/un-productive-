@@ -1,7 +1,7 @@
 import React from 'react'
 
 const pBooksItems = ({books}) => {
-    const {author,bookName,picture,datePublished,userName}=books
+    const {author_name,book_name,picture,date_published,user_name}=books
     return (
         <div >
            
@@ -9,10 +9,10 @@ const pBooksItems = ({books}) => {
             <img src={picture} alt=""/>
             </div>
             <div className="content">
-            <h3>Book:<span>{bookName}</span></h3> 
-            <h3>Author: {author}</h3>
-            <h3>Date Published: {datePublished}</h3>
-            <h3>Added by: {userName}</h3>
+            <h3>Book:<span>{book_name}</span></h3> 
+            <h3>Author: {author_name}</h3>
+            <h3>Date Published: {date_published}</h3>
+            <h3>Added by: {user_name}</h3>
             </div>
             </div>
            

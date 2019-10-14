@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Pbooks from '../pBooks/Pbooks';
 import ProductiveContext from '../../../context/productive/ProductiveContext';
+import Navbar from '../../../layout/Navbar'
 
 const Form = () => {
   const productiveContext = useContext(ProductiveContext);
@@ -17,7 +18,7 @@ const Form = () => {
     setPbook({ ...pBooks, [e.target.name]: [e.target.value] });
 
   const onSubmit = e => {
-    e.preventDefault();
+    window.location.reload();;
     productiveContext.addNewBook(pBooks);
     setPbook({
       author_name: '',
@@ -30,6 +31,7 @@ const Form = () => {
 
   return (
     <div>
+    <Navbar/>
       <form onSubmit={onSubmit}>
         <h2>Add Book</h2>
         <input

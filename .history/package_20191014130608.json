@@ -1,0 +1,27 @@
+{
+  "name": "un-productive-",
+  "version": "1.0.0",
+  "description": "A website to search for books and video games and review them.",
+  "main": "./Back-end/index",
+  "scripts": {
+    "start": "node ./Back-end/index.js",
+    "server": "nodemon /Back-end/index.js",
+    "un-productive": "npm start --prefix un-productive",
+    "clientinstall": "npm install --prefix un-productive",
+    "dev": "concurrently \"npm run start\" \"npm run un-productive\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vic30004/un-productive-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vic30004/un-productive-/issues"
+  },
+  "homepage": "https://github.com/vic30004/un-productive-#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0"
+  }
+}

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import Ugames from '../uGames/Ugames';
 import UnproductiveContext from '../../../context/unproductive/UnproductiveContext';
+import Navbar from '../../../layout/Navbar'
+
 
 const Form = () => {
   const unproductiveContext = useContext(UnproductiveContext);
@@ -25,7 +27,7 @@ const Form = () => {
     setUgame({ ...uGames, [e.target.name]: [e.target.value] });
 
   const onSubmit = e => {
-    e.preventDefault();
+    window.location.reload();
     unproductiveContext.addNewGame(uGames);
     setUgame({
       game_name: '',
@@ -39,6 +41,7 @@ const Form = () => {
 
   return (
     <div>
+    <Navbar/>
       <form onSubmit={onSubmit}>
         <h2>Add Game</h2>
         <input

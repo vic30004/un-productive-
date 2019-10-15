@@ -36,6 +36,9 @@ li{
   list-style-type: none;
 }
 
+p{
+  line-height: 1.5;
+}
 /* Utility */
 
 .btn{
@@ -75,7 +78,7 @@ li{
   display: grid;
   width: var(--max-width);
   margin: 2rem auto;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   grid-gap: 2rem;
   
 }
@@ -133,7 +136,9 @@ li{
 #header{
   width: 100%;
   height:50vh;
-  background: linear-gradient(to right, var(--main-color), var(--second-color),var(--third-color));
+  /* background: linear-gradient(to right, var(--main-color), var(--second-color),var(--third-color)); */
+  background: var(--dark-color);
+  color: var(--light-color);
   z-index: 1;
 }
 
@@ -231,3 +236,38 @@ li{
   justify-items: center;
   height: 100%;
 }
+
+
+/* Nav-bar */
+#navB{
+  margin-bottom: 1rem;
+  
+}
+
+#nav-bar{
+  background: var(--dark-color);
+  color: var(--light-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 5px solid var(--main-color);
+}
+
+#nav-bar .logo{
+  font-family: var(--logo-font);
+  margin: 0 2rem;
+}
+
+#nav-bar .nav-list {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+
+
+/* Single Page */
+
+#single-page{
+  height: 100vh;
+}
+

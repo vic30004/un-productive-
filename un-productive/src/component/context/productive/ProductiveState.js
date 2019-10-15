@@ -1,70 +1,79 @@
 import React, { useReducer } from 'react';
+import axios from 'axios';
 import ProductiveContext from './ProductiveContext';
 import ProductiveReducer from './ProductiveReducer';
 import {
+  GET_BOOKS,
   ADD_NEW_BOOK,
   DELETE_BOOK,
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_BOOK,
   FILTER_BOOKS,
-  CLEAR_FILTER
+  CLEAR_BOOKS,
+  CLEAR_FILTER,
+  BOOK_ERROR,
+
 } from '../types';
 
+const ProductiveState = props => {
+  const initialState = {
+    pBooks: [],
+    error: null
+  };
 
-const ProductiveState = props=>{
-    const initialState = {
-        pBooks:[{
-            author: 'James Brown',
-            bookName: 'Blue',
-            picture:
-              'https://upload.wikimedia.org/wikipedia/commons/9/99/James_Brown_Live_Hamburg_1973_1702730029.jpg',
-            datePublished: '1970',
-            userName: 'John Doe',
-            id: Math.floor(Math.random() * 100) + 1
-          },
-          {
-            author: 'James Brown',
-            bookName: 'Blue',
-            picture:
-              'https://upload.wikimedia.org/wikipedia/commons/9/99/James_Brown_Live_Hamburg_1973_1702730029.jpg',
-            datePublished: '1970',
-            userName: 'John Doe',
-            id: Math.floor(Math.random() * 100) + 1
-          }
-            ]
+  const [state, dispatch] = useReducer(ProductiveReducer, initialState);
+
+  //GET BOOKS
+  const getNewBook = async () => {
+    try {
+      const res = await axios.get('/api/productive');
+      dispatch({ type: GET_BOOKS  , payload: res.data });
+    } catch (err) {
+      dispatch({ type: BOOK_ERROR, payload: err.response.msg });
+    }
+  };
+
+
+  // ADD BOOKS
+  const addNewBook = async book => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     };
+    try {
+      const res = await axios.post('/api/productive', book, config);
+      dispatch({ type: ADD_NEW_BOOK, payload: res.data });
+    } catch (err) {
+      dispatch({ type: BOOK_ERROR, payload: err.response.msg });
+    }
+  };
 
+  // DELETE BOOKS
 
-    const [state, dispatch] = useReducer(ProductiveReducer, initialState);
+  // SET CURRENT BOOK
 
-    // ADD BOOKS
+  // CLEAR CURRENT BOOK
 
-    // DELETE BOOKS
+  // UPDATE BOOK
 
-    // SET CURRENT BOOK
+  // FILTER BOOK
 
-    // CLEAR CURRENT BOOK
+  // CLEAR FILTER
 
-    // UPDATE BOOK
-
-    // FILTER BOOK
-
-    // CLEAR FILTER
-
-    return (
-        <ProductiveContext.Provider
-        value={{
-            pBooks: state.pBooks
-        }}
-        >
-            
-            {props.children}
-
-        </ProductiveContext.Provider>
-
-    )
-
-}
+  return (
+    <ProductiveContext.Provider
+      value={{
+        pBooks: state.pBooks,
+        addNewBook,
+        error: state.error,
+        getNewBook,
+      }}
+    >
+      {props.children}
+    </ProductiveContext.Provider>
+  );
+};
 
 export default ProductiveState;

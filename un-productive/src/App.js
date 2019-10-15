@@ -81,9 +81,11 @@ class App extends Component {
   };
   //search books
   searchBooks = text => {
+
     this.setState({loading: true})
 
     let queryUrl = `https://www.googleapis.com/books/v1/volumes?q=${text}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+
     fetch(queryUrl)
       .then(res => res.json())
       .then(data => {

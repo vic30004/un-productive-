@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const Rawger = require('rawger');
 const connection = require('../config/connection')
 
 router.get('/api/unproductive', async function (req, res) {

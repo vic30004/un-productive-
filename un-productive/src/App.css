@@ -91,7 +91,7 @@ p{
   background: var(--dark-color);
   color: var(--light-color);
   transition: all 1s ease;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .card:nth-child(even){

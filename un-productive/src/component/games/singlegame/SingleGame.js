@@ -9,25 +9,30 @@ export class SingleGame extends Component {
         
     render() {
         const {loading,game}=this.props;
+
+        const {name,description_raw, genre,background_image}=game
         return (
             
             <div style={{background:"var(--dark-color)", color:"var(--light-color)"}}>
             <Navbar/>
             <section id="single-page">
                
-               {game.map(data=>(
-                    <div className="container" key={data.name}>
+            {console.log(game)}
+
+            
+                    <div className="container" key={name}>
                         <div className="book-pic">
-                        <img src={data.background_image} alt=""/>
+                        <img src={background_image} alt=""/>
                         </div>
 
                         <div className="book-content">
-                        <h1>{data.name}</h1>
-                        <p>{data.genres[0].name}</p>
-
+                        <h1>{name}</h1>
+                        <p>{genre}</p>
+                        {description_raw}
                         </div>
                     </div>
-               ))}
+               
+               
                </section> 
             </div>
         )

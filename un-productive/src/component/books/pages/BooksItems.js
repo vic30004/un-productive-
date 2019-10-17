@@ -6,6 +6,7 @@ const BooksItems = ({ books: { title, imageLinks } }) => {
   return (
     <section id='books'>
       <div className="card">
+        
         <h2 className='title'>{title}</h2>
         <img src={imageLinks.thumbnail} alt='' />
         <Link to={`/productive/${title}`} className='btn btn-book'>

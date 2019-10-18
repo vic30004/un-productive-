@@ -43,7 +43,7 @@ const Form = () => {
     <div>
     <Navbar/>
       <form onSubmit={onSubmit}>
-        <h2>Add Game</h2>
+        <h2>Favorite Games</h2>
         <input
           type='text'
           placeholder='Game Name'

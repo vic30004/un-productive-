@@ -30,6 +30,7 @@ const ProductiveState = props => {
       const res = await axios.get('/api/productive');
       dispatch({ type: GET_BOOKS  , payload: res.data });
     } catch (err) {
+      console.log(err);
       dispatch({ type: BOOK_ERROR, payload: err.response.msg });
     }
   };

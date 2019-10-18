@@ -53,7 +53,7 @@ p {
 
 .btn-book {
   background: var(--main-color);
-  box-shadow: 0 3px 16px var(--main-color);
+  box-shadow: 0 3px 10px var(--main-color);
   opacity: 0.8;
 }
 
@@ -286,7 +286,8 @@ p {
 }
 
 body{
-  background-image:url(images/pokemon.png);
+  /*background-image:url(images/pokemon.png);*/
+  background-image: url(images/halo.png);
   background-attachment: fixed;
   
 }
@@ -298,7 +299,7 @@ body{
   opacity: 1;
 }
 /* Mobile-first layout*/
-@media(max-width:500px) {
+@media(max-width:550px) {
   #header{
     align-items: center;
   }
@@ -311,19 +312,16 @@ body{
   #header .search-container h1 {
     font-size:1rem;
   }
+  .submit{
+    align-content:center;
+    margin:auto;
+    /*align-items: left;*/
+    width:50%;
+    float:left;
+    
+  }
+ .btn-book{
+   font-text:10px;
+ }
 
-}
-.column{
-  width:100%
-}
-@media (min-width: 50em) {
-	.column {
-		float: center;
-		width: 50%;
-	}
-}
-@media (min-width: 75em) {
-	.column {
-		width: 33.33%;
-	}
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 
 *{
   padding:0;
@@ -140,6 +141,7 @@ p{
   background: var(--dark-color);
   color: var(--light-color);
   z-index: 1;
+  font-family: 'Comfortaa', cursive;
 }
 
 #header .nav-bar{
@@ -372,3 +374,5 @@ figure:hover {
 }
 
 
+
+ 

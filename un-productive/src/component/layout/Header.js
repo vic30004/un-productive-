@@ -90,9 +90,6 @@ export class Header extends Component {
               Search Game
             </Link>
 
-            <a href='#' className='btn btn-random'>
-              Random
-            </a>
           </div>
         </div>
         {showClearGames && <button onClick={this.props.clear}>Clear</button>}

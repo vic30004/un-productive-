@@ -132,11 +132,12 @@ class App extends Component {
                     setAlert={this.setAlert}
                     alert={alert}
                   />
-                  <div className='container'>
+                  <Fragment>
   
                     <Games  loading={loading} games={games} />
+
                     <Books loading={loading} books={books} />
-                  </div>
+                  </Fragment>
                 </div>
               )}
             />

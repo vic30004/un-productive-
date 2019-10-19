@@ -18,6 +18,8 @@ export class Header extends Component {
     setAlert: PropTypes.func.isRequired
   };
 
+
+
   onSubmitGame = e => {
     e.preventDefault();
     if (this.state.text === '') {
@@ -40,7 +42,7 @@ export class Header extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { showClearBooks, showClearGames } = this.props;
+    const { showClearBooks, showClearGames, onSearchChange,searchfield } = this.props;
     return (
       <div id='header'>
         <nav className='nav-bar'>
@@ -68,6 +70,7 @@ export class Header extends Component {
             placeholder='Search...'
             value={this.state.text}
             onChange={this.onChange}
+            
           />
 
           <div className='submit'>

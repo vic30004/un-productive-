@@ -33,7 +33,7 @@ const Form = () => {
     <div>
     <Navbar/>
       <form onSubmit={onSubmit}>
-        <h2>Add Book</h2>
+        <h2>Favorite Books</h2>
         <input
           type='text'
           placeholder='Author Name'

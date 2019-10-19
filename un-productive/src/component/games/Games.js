@@ -4,17 +4,15 @@ import Spinner from '../layout/Spinner';
 import PropTypes from 'prop-types';
 
 const Games = ({ games, loading }) => {
-  if (loading) {
-    return <Spinner />;
-  } else {
+ 
     return (
-      <Fragment>
+      <div className="contnent-container">
         {games.map(data => (
           <GamesItem key={data.name} games={data} />
         ))}
-      </Fragment>
+      </div>
     );
-  }
+  
 };
 
 Games.prototype = {

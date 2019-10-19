@@ -3,7 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import Alert from './Alert';
 import { Link } from 'react-router-dom';
-
+import Un__producitve from './../../images/Un__productive.png'
 export class Header extends Component {
   state = {
     text: ''
@@ -61,7 +61,7 @@ export class Header extends Component {
         
 
         <div className='search-container'>
-          <h1>Un||Productive</h1>
+          <h1>un||productive</h1>
           <Alert alert={this.props.alert} />
           <input
             type='text'
@@ -89,11 +89,11 @@ export class Header extends Component {
               {' '}
               Search Game
             </Link>
-
+{showClearGames && <button className="btn btn-random" onClick={this.props.clear}>Clear</button>}
+        {showClearBooks && <button className="btn btn-random" onClick={this.props.clear}>Clear</button>}
           </div>
         </div>
-        {showClearGames && <button onClick={this.props.clear}>Clear</button>}
-        {showClearBooks && <button onClick={this.props.clear}>Clear</button>}
+       
       </div>
     );
   }

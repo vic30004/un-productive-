@@ -123,6 +123,7 @@ class App extends Component {
               path='/'
               render={props => (
                 <div>
+                <Fragment>
                   <Header
                     searchGames={this.searchGames}
                     searchBooks={this.searchBooks}
@@ -132,12 +133,13 @@ class App extends Component {
                     setAlert={this.setAlert}
                     alert={alert}
                   />
-                  <Fragment>
-  
+                  </Fragment>
+                  <div >
+                
                     <Games  loading={loading} games={games} />
 
                     <Books loading={loading} books={books} />
-                  </Fragment>
+                  </div>
                 </div>
               )}
             />

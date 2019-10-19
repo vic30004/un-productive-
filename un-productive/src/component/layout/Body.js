@@ -15,7 +15,6 @@ class Body extends Component {
   render() {
     return (
     <section id="books">
-  <h1>Games</h1>
     </section>
 
     )

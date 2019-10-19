@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const pBooksItems = ({ books }) => {
@@ -20,4 +21,7 @@ const pBooksItems = ({ books }) => {
     )
 }
 
-export default pBooksItems
+  
+ 
+
+export default pBooksItems;

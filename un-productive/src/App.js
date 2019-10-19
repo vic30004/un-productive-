@@ -10,6 +10,7 @@ import ProductiveState from './component/context/productive/ProductiveState';
 import UnproductiveState from './component/context/unproductive/UnproductiveState';
 import SingleBook from './component/books/singlebook/SingleBook'
 import SingleGame from './component/games/singlegame/SingleGame'
+import Body from './component/layout/Body'
 import './App.css';
 
 class App extends Component {
@@ -22,6 +23,8 @@ class App extends Component {
       alert: null,
       singleBook: [],
       singleGame:[],
+      searchfield: '',
+      test: [],
     };
   }
 
@@ -65,7 +68,9 @@ class App extends Component {
       });
   };
 
+  // filter Game
 
+ 
 
   //search games
   searchGames = text => {
@@ -106,7 +111,9 @@ class App extends Component {
   };
 
   render() {
-    const { loading, games, books, alert,singleBook,singleGame } = this.state;
+    console.log(this.state.searchfield)
+    
+    const { loading, games, books, alert,singleBook,singleGame,} = this.state;
     return (
       <Router>
         <div>
@@ -116,6 +123,7 @@ class App extends Component {
               path='/'
               render={props => (
                 <div>
+                <Fragment>
                   <Header
                     searchGames={this.searchGames}
                     searchBooks={this.searchBooks}
@@ -125,8 +133,11 @@ class App extends Component {
                     setAlert={this.setAlert}
                     alert={alert}
                   />
-                  <div className='container'>
+                  </Fragment>
+                  <div >
+                
                     <Games  loading={loading} games={games} />
+
                     <Books loading={loading} books={books} />
                   </div>
                 </div>

@@ -51,8 +51,7 @@ const ProductiveState = props => {
     }
   };
 
-  // DELETE BOOKS
-
+  
   // SET CURRENT BOOK
 
   // CLEAR CURRENT BOOK

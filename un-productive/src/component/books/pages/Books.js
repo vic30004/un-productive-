@@ -12,7 +12,7 @@ const Books = ({ books, loading }) => {
         {books.map(data => (
           <BooksItems key={data.volumeInfo.title} books={data.volumeInfo} />
         ))}
-      </Fragment>
+        </Fragment>
     );
   }
 };

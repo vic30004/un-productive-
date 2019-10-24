@@ -25,10 +25,24 @@ router.post('/api/productive', function(req, res) {
     `INSERT INTO books (author_name, book_name, picture, date_published, user_name) VALUES ('${author_name}','${book_name}','${picture}','${date_published}','${user_name}') `,
     function(err, results) {
       if (err) throw err;
-      console.log(results);
       res.status(200).end();
     }
   );
 });
+
+router.delete('/api/productive/:id',function(req,res) {
+  const {
+    id,
+    author_name,
+    book_name,
+    picture,
+    date_published,
+    user_name
+  } = req.body;
+  connection.query(`DELETE FROM books WHERE id = ${req.id}`, function(err,res){
+    if (err) throw err;
+    res.status(200).end();
+  })
+})
 
 module.exports = router;

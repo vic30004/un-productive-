@@ -18,6 +18,9 @@ const Form = () => {
     setPbook({ ...pBooks, [e.target.name]: [e.target.value] });
 
   const onSubmit = e => {
+    if(author_name === '' || book_name==='' || date_published === '' || user_name === ''){
+      return alert("Please fill out all the fileds")
+    }
     window.location.reload();;
     productiveContext.addNewBook(pBooks);
     setPbook({
@@ -32,48 +35,57 @@ const Form = () => {
   return (
     <div>
     <Navbar/>
+    <div className="form-container">
       <form onSubmit={onSubmit}>
-        <h2>Add Book</h2>
+        <h2>Favorite Books</h2>
+        <label >Author Name</label>
         <input
           type='text'
-          placeholder='Author Name'
+          placeholder='Author'
           name='author_name'
           value={author_name}
           onChange={onChange}
         />
+        <label >Book Name</label>
+
         <input
           type='text'
-          placeholder='Book Name'
+          placeholder='Book'
           name='book_name'
           value={book_name}
           onChange={onChange}
         />
+        <label > Picture</label>
         <input
           type='text'
-          placeholder='Picture'
+          placeholder='https://picture.jpg'
           name='picture'
           value={picture}
           onChange={onChange}
         />
+        <label>Date Published</label>
         <input
           type='text'
-          placeholder='Date Published'
+          placeholder='MM-DD-YY'
           name='date_published'
           value={date_published}
           onChange={onChange}
         />
+        <label>Username</label>
         <input
           type='text'
-          placeholder='Full Name'
+          placeholder='Username'
           name='user_name'
           value={user_name}
           onChange={onChange}
         />
-        <div>
-          <input type='submit' value='Add Book' className='btn btn-book' />
-        </div>
-      </form>
 
+        <div>
+          <input type='submit' value='Add Book' className='btn btn-random' />
+        </div>
+        
+      </form>
+      </div>
       <Pbooks />
     </div>
   );

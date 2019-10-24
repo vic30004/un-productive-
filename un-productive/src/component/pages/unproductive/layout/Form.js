@@ -27,6 +27,9 @@ const Form = () => {
     setUgame({ ...uGames, [e.target.name]: [e.target.value] });
 
   const onSubmit = e => {
+    if(game_name === '' || picture === '' || release_date=== '' || genre === ''|| platform===''|| user_name ===''){
+      return alert("Please fill out all the fileds")
+    }
     window.location.reload();
     unproductiveContext.addNewGame(uGames);
     setUgame({
@@ -42,8 +45,10 @@ const Form = () => {
   return (
     <div>
     <Navbar/>
+    <div className="form-container">
       <form onSubmit={onSubmit}>
-        <h2>Add Game</h2>
+        <h2>Favorite Games</h2>
+        <label>Game</label>
         <input
           type='text'
           placeholder='Game Name'
@@ -51,13 +56,15 @@ const Form = () => {
           value={game_name}
           onChange={onChange}
         />
+        <label>Picture</label>
         <input
           type='text'
-          placeholder='Picture'
+          placeholder='https://picture.jpg'
           name='picture'
           value={picture}
           onChange={onChange}
         />
+        <label>Release Date</label>
         <input
           type='text'
           placeholder='Release Date'
@@ -65,6 +72,7 @@ const Form = () => {
           value={release_date}
           onChange={onChange}
         />
+        <label>Genre</label>
         <input
           type='text'
           placeholder='Genre'
@@ -72,6 +80,7 @@ const Form = () => {
           value={genre}
           onChange={onChange}
         />
+        <label>Platform</label>
         <input
           type='text'
           placeholder='Platform'
@@ -79,9 +88,10 @@ const Form = () => {
           value={platform}
           onChange={onChange}
         />
+        <label>Username</label>
         <input
           type='text'
-          placeholder='Full Name'
+          placeholder='Username'
           name='user_name'
           value={user_name}
           onChange={onChange}
@@ -90,7 +100,7 @@ const Form = () => {
           <input type='submit' value='Add Game' className='btn btn-game' />
         </div>
       </form>
-
+      </div>
       <Ugames />
     </div>
   );

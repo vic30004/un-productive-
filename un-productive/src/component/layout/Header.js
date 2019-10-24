@@ -3,7 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import Alert from './Alert';
 import { Link } from 'react-router-dom';
-
+import Un__producitve from './../../images/Un__productive.png'
 export class Header extends Component {
   state = {
     text: ''
@@ -17,6 +17,8 @@ export class Header extends Component {
     showClearBooks: PropTypes.bool.isRequired,
     setAlert: PropTypes.func.isRequired
   };
+
+
 
   onSubmitGame = e => {
     e.preventDefault();
@@ -40,7 +42,7 @@ export class Header extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { showClearBooks, showClearGames } = this.props;
+    const { showClearBooks, showClearGames, onSearchChange,searchfield } = this.props;
     return (
       <div id='header'>
         <nav className='nav-bar'>
@@ -59,7 +61,7 @@ export class Header extends Component {
         
 
         <div className='search-container'>
-          <h1>Un||Productive</h1>
+          <h1>un||productive</h1>
           <Alert alert={this.props.alert} />
           <input
             type='text'
@@ -68,6 +70,7 @@ export class Header extends Component {
             placeholder='Search...'
             value={this.state.text}
             onChange={this.onChange}
+            
           />
 
           <div className='submit'>
@@ -86,14 +89,11 @@ export class Header extends Component {
               {' '}
               Search Game
             </Link>
-
-            <a href='#' className='btn btn-random'>
-              Random
-            </a>
+{showClearGames && <button className="btn btn-random" onClick={this.props.clear}>Clear</button>}
+        {showClearBooks && <button className="btn btn-random" onClick={this.props.clear}>Clear</button>}
           </div>
         </div>
-        {showClearGames && <button onClick={this.props.clear}>Clear</button>}
-        {showClearBooks && <button onClick={this.props.clear}>Clear</button>}
+       
       </div>
     );
   }

@@ -10,6 +10,7 @@ import ProductiveState from './component/context/productive/ProductiveState';
 import UnproductiveState from './component/context/unproductive/UnproductiveState';
 import SingleBook from './component/books/singlebook/SingleBook'
 import SingleGame from './component/games/singlegame/SingleGame'
+import Body from './component/layout/Body'
 import './App.css';
 
 class App extends Component {
@@ -22,21 +23,23 @@ class App extends Component {
       alert: null,
       singleBook: [],
       singleGame:[],
+      searchfield: '',
+      test: [],
     };
   }
 
-  // componentWillMount() {
-  //   this.setState({ loading: true });
-  //   let queryUrl = `https://api.rawg.io/api/games?page_size=15`;
-  //   fetch(queryUrl)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data.results);
-  //       this.setState({ games: data.results, loading: false });
-  //       console.log(this.state.games);
-  //     });
-  //   console.log(this.state.games);
-  // }
+  componentWillMount() {
+    this.setState({ loading: true });
+    let queryUrl = `https://api.rawg.io/api/games?page_size=15`;
+    fetch(queryUrl)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.results);
+        this.setState({ games: data.results, loading: false });
+        console.log(this.state.games);
+      });
+    console.log(this.state.games);
+  }
 
   // Get single Book
 
@@ -56,16 +59,18 @@ class App extends Component {
   getGames = game => {
     this.setState({loading: true})
     console.log(game);
-    let queryUrl = `https://api.rawg.io/api/games?page_size=1&search=${game}`;
+    let queryUrl = `https://api.rawg.io/api/games/${game}`;
     fetch(queryUrl)
       .then(res => res.json())
       .then(data => {
         console.log(data.results);
-        this.setState({ singleGame: data.results,  loading:false });
+        this.setState({ singleGame: data,  loading:false });
       });
   };
 
+  // filter Game
 
+ 
 
   //search games
   searchGames = text => {
@@ -106,7 +111,9 @@ class App extends Component {
   };
 
   render() {
-    const { loading, games, books, alert,singleBook,singleGame } = this.state;
+    console.log(this.state.searchfield)
+    
+    const { loading, games, books, alert,singleBook,singleGame,} = this.state;
     return (
       <Router>
         <div>
@@ -116,6 +123,7 @@ class App extends Component {
               path='/'
               render={props => (
                 <div>
+                <Fragment>
                   <Header
                     searchGames={this.searchGames}
                     searchBooks={this.searchBooks}
@@ -125,8 +133,11 @@ class App extends Component {
                     setAlert={this.setAlert}
                     alert={alert}
                   />
-                  <div className='container'>
-                    <Games className='card' loading={loading} games={games} />
+                  </Fragment>
+                  <div >
+                
+                    <Games  loading={loading} games={games} />
+
                     <Books loading={loading} books={books} />
                   </div>
                 </div>
@@ -134,10 +145,10 @@ class App extends Component {
             />
             <Route exact path='/productive' component={Productive} />
             <Route exact path='/unproductive' component={Unproductive} />
-            <Route exact path ='/productive/:book' render={props=>(
+            <Route  path ='/productive/:book' render={props=>(
               <SingleBook  {...props} getBook={this.getBook} book={singleBook} loading={loading}/>
             )}/>
-            <Route exact path ='/unproductive/:game' render={props=>(
+            <Route path ='/unproductive/:game' render={props=>(
               <SingleGame {...props} getGames={this.getGames} game={singleGame} loading={loading}/>
             )}/>
               

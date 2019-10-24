@@ -29,6 +29,7 @@ import {
                     ...state,
                     error: action.payload
                 }
+                
           default: 
           return state;
       }

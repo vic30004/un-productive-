@@ -62,7 +62,7 @@ p {
 
 .btn-book {
   background: var(--main-color);
-  box-shadow: 0 3px 16px var(--main-color);
+  box-shadow: 0 3px 10px var(--main-color);
   opacity: 0.8;
 }
 
@@ -313,6 +313,13 @@ p {
 }
 
 
+body{
+  /*background-image:url(images/pokemon.png);*/
+  background-image: url(images/halo.png);
+  background-attachment: fixed;
+  
+}
+
 #header{
   opacity:0.7;
   position:center;
@@ -320,11 +327,16 @@ p {
 .btn{
   opacity: 1;
 }
- 
+
 /*--------------MEDIA QUERIES------------/* 
 Responsive desktop*/-----------------------------------
 
  @media (min-width: 1281px) {
+=======
+/* Mobile-first layout*/
+@media(max-width:550px) {
+
+  
   #header{
     align-items: center;
   }
@@ -502,6 +514,7 @@ Responsive mobile--------------------------------------
     padding-bottom: 100px;
     padding-left: 100px;
   }
+
             
   .card {
   width: 350px;
@@ -571,6 +584,18 @@ figure:after {
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: hidden;
 }
+=======
+  .submit{
+    align-content:center;
+    margin:auto;
+    /*align-items: left;*/
+    width:50%;
+    float:left;
+    
+  }
+ .btn-book{
+   font-text:10px;
+ }
 
 
 figure .date {
@@ -604,6 +629,7 @@ figure figcaption {
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 1;
 }
+
 figure figcaption h4 {
   margin: 0 0 5px;
   font-family: "Source Code Pro", sans-serif;
@@ -790,3 +816,4 @@ justify-content: space-between;
   font-weight: bold;
   font-size: 1.2rem;
 }
+

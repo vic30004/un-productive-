@@ -2,7 +2,10 @@
 
 We have developed a react app that can be used to look up books (Productive), or(||) look up games (Un-productive). Users can save their recommendations for either type on a communal page.
 
-[Home](/images/un_home.PNG)
+![Home](/images/un_home.PNG)
+
+# Live Link 
+https://un-productive.herokuapp.com/
 
 ## User Interface
 - Home
